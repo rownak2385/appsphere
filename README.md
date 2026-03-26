@@ -8,7 +8,7 @@ AppSphere is a responsive app marketplace web application where users can explor
 
 ## 🌐 Live Link
 
-🔗 https://appsphere-rh.vercel.app/
+🔗 https://appsphere-rh.netlify.app/
 
 ---
 
