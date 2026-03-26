@@ -1,3 +1,5 @@
+import { faApple, faGooglePlay } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import heroImage from "../../assets/hero.png";
 import AppCard from "../components/AppCard";
@@ -27,9 +29,11 @@ function HomePage() {
 
           <div className="hero-section__actions">
             <a href="https://play.google.com/store" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faGooglePlay} />
               Google Play
             </a>
             <a href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faApple} />
               App Store
             </a>
           </div>

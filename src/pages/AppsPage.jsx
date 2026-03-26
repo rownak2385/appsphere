@@ -1,3 +1,5 @@
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useMemo, useState } from "react";
 import AppCard from "../components/AppCard";
 import apps from "../data/apps";
@@ -19,7 +21,7 @@ function AppsPage() {
 
       setDisplayedApps(filteredApps);
       setIsSearching(false);
-    }, 250);
+    }, 420);
 
     return () => window.clearTimeout(timeoutId);
   }, [normalizedQuery]);
@@ -36,13 +38,15 @@ function AppsPage() {
 
         <label className="apps-page__search" htmlFor="apps-search">
           <span className="sr-only">Search apps</span>
-          <span className="apps-page__search-icon">?</span>
+          <span className="apps-page__search-icon">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </span>
           <input
             id="apps-search"
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="search apps"
+            placeholder="Search apps"
             autoComplete="off"
           />
         </label>
@@ -70,3 +74,4 @@ function AppsPage() {
 }
 
 export default AppsPage;
+

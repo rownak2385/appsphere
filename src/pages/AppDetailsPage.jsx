@@ -1,3 +1,10 @@
+import {
+  faArrowDown,
+  faBoxArchive,
+  faMessage,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import {
@@ -9,6 +16,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import appErrorImage from "../../assets/App-Error.png";
 import Toast from "../components/Toast";
 import apps from "../data/apps";
 import { formatDownloads, formatReviews, formatSize } from "../utils/formatters";
@@ -41,8 +49,9 @@ function AppDetailsPage() {
     return (
       <section className="details-page details-page--empty">
         <div className="details-empty-card">
+          <img src={appErrorImage} alt="App not found" />
           <h1>OPPS!! APP NOT FOUND</h1>
-          <p>The app you are requesting is not found on our system. Please try another app.</p>
+          <p>The App you are requesting is not found on our system. Please try another app.</p>
           <Link className="page-link" to="/apps">
             Go Back!
           </Link>
@@ -50,6 +59,13 @@ function AppDetailsPage() {
       </section>
     );
   }
+
+  const stats = [
+    { label: "Downloads", value: formatDownloads(app.downloads), icon: faArrowDown },
+    { label: "Average Ratings", value: app.ratingAvg, icon: faStar },
+    { label: "Total Reviews", value: formatReviews(app.reviews), icon: faMessage },
+    { label: "App Size", value: formatSize(app.size), icon: faBoxArchive },
+  ];
 
   const handleInstall = () => {
     if (installed) {
@@ -79,22 +95,15 @@ function AppDetailsPage() {
           </div>
 
           <div className="details-page__stats">
-            <article>
-              <span>Downloads</span>
-              <strong>{formatDownloads(app.downloads)}</strong>
-            </article>
-            <article>
-              <span>Average Ratings</span>
-              <strong>{app.ratingAvg}</strong>
-            </article>
-            <article>
-              <span>Total Reviews</span>
-              <strong>{formatReviews(app.reviews)}</strong>
-            </article>
-            <article>
-              <span>App Size</span>
-              <strong>{formatSize(app.size)}</strong>
-            </article>
+            {stats.map((item) => (
+              <article key={item.label}>
+                <span>
+                  <FontAwesomeIcon icon={item.icon} />
+                  {item.label}
+                </span>
+                <strong>{item.value}</strong>
+              </article>
+            ))}
           </div>
 
           <div className="details-page__action-row">
@@ -106,12 +115,7 @@ function AppDetailsPage() {
             >
               {installed ? "Installed" : `Install Now [${app.size} MB]`}
             </button>
-            <p className="details-page__action-note">
-              {installed
-                ? "Already added to your installations."
-                : "Install once to save this app to your local device list."}
-            </p>
-          </div>
+</div>
         </div>
       </div>
 
@@ -159,3 +163,4 @@ function AppDetailsPage() {
 }
 
 export default AppDetailsPage;
+

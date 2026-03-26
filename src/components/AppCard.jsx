@@ -1,3 +1,5 @@
+import { faArrowDown, faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { formatDownloads } from "../utils/formatters";
 
@@ -13,9 +15,13 @@ function AppCard({ app, clickable = false }) {
 
         <div className="app-card__meta">
           <span className="app-card__badge app-card__badge--downloads">
+            <FontAwesomeIcon icon={faArrowDown} />
             {formatDownloads(app.downloads)}
           </span>
-          <span className="app-card__badge app-card__badge--rating">{app.ratingAvg}</span>
+          <span className="app-card__badge app-card__badge--rating">
+            <FontAwesomeIcon icon={faStar} />
+            {app.ratingAvg}
+          </span>
         </div>
       </div>
     </>

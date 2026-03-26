@@ -1,3 +1,6 @@
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink, Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 
@@ -13,6 +16,7 @@ function Header() {
       <div className="site-header__inner">
         <Link className="brand-mark" to="/" aria-label="AppSphere home">
           <img className="brand-mark__image" src={logo} alt="AppSphere logo" />
+          <span className="brand-mark__label">AppSphere</span>
         </Link>
 
         <nav className="site-nav" aria-label="Primary navigation">
@@ -36,8 +40,11 @@ function Header() {
           target="_blank"
           rel="noreferrer"
         >
-          <span className="contribute-button__icon">GH</span>
+          <span className="contribute-button__icon">
+            <FontAwesomeIcon icon={faGithub} />
+          </span>
           <span>Contribute</span>
+          <FontAwesomeIcon icon={faHeart} />
         </a>
       </div>
     </header>

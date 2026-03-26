@@ -1,6 +1,6 @@
 const STORAGE_KEY = "appsphere-installed-apps";
 
-export function getInstalledApps() {
+function readStoredApps() {
   if (typeof window === "undefined") {
     return [];
   }
@@ -19,26 +19,35 @@ export function getInstalledApps() {
   }
 }
 
+function writeStoredApps(apps) {
+  if (typeof window === "undefined") {
+    return apps;
+  }
+
+  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(apps));
+  return apps;
+}
+
+export function getInstalledApps() {
+  return readStoredApps();
+}
+
 export function isAppInstalled(appId) {
-  return getInstalledApps().some((item) => item.id === appId);
+  return readStoredApps().some((item) => item.id === appId);
 }
 
 export function saveInstalledApp(app) {
-  const installedApps = getInstalledApps();
+  const installedApps = readStoredApps();
 
   if (installedApps.some((item) => item.id === app.id)) {
     return installedApps;
   }
 
-  const nextApps = [...installedApps, app];
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(nextApps));
-  return nextApps;
+  return writeStoredApps([...installedApps, app]);
 }
 
 export function removeInstalledApp(appId) {
-  const nextApps = getInstalledApps().filter((item) => item.id !== appId);
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(nextApps));
-  return nextApps;
+  return writeStoredApps(readStoredApps().filter((item) => item.id !== appId));
 }
 
 export { STORAGE_KEY };

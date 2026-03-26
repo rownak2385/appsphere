@@ -1,3 +1,9 @@
+import {
+  faFacebookF,
+  faGithub,
+  faLinkedinIn,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 
@@ -8,9 +14,9 @@ const footerLinks = [
 ];
 
 const socialLinks = [
-  { label: "GitHub", href: "https://github.com/rownak2385", short: "GH" },
-  { label: "LinkedIn", href: "https://www.linkedin.com", short: "in" },
-  { label: "Facebook", href: "https://www.facebook.com", short: "f" },
+  { label: "GitHub", href: "https://github.com/rownak2385", icon: faGithub },
+  { label: "LinkedIn", href: "https://www.linkedin.com", icon: faLinkedinIn },
+  { label: "Facebook", href: "https://www.facebook.com", icon: faFacebookF },
 ];
 
 function Footer() {
@@ -20,7 +26,12 @@ function Footer() {
         <div className="site-footer__brand">
           <Link className="brand-mark brand-mark--footer" to="/">
             <img className="brand-mark__image" src={logo} alt="AppSphere logo" />
+            <span className="brand-mark__label">AppSphere</span>
           </Link>
+          <p className="site-footer__copy">
+            Discover focused productivity tools, install your favorites locally, and
+            keep a curated app collection ready across every device size.
+          </p>
         </div>
 
         <div className="site-footer__links">
@@ -47,7 +58,7 @@ function Footer() {
                 aria-label={item.label}
                 title={item.label}
               >
-                {item.short}
+                <FontAwesomeIcon icon={item.icon} />
               </a>
             ))}
           </div>
@@ -62,5 +73,3 @@ function Footer() {
 }
 
 export default Footer;
-
-
