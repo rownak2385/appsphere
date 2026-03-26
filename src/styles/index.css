@@ -744,3 +744,239 @@ img {
   }
 }
 
+
+
+
+.toast {
+  position: fixed;
+  top: 94px;
+  right: 24px;
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #10365c;
+  color: #fff;
+  box-shadow: 0 18px 30px rgba(16, 37, 66, 0.22);
+}
+
+.toast__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #29d17d;
+}
+
+.toast--success .toast__dot {
+  background: #29d17d;
+}
+
+.details-page {
+  display: grid;
+  gap: 30px;
+  padding: 18px 0 56px;
+}
+
+.details-page__top {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 28px;
+  padding: 18px 0 28px;
+  border-bottom: 1px solid #dfe5f0;
+}
+
+.details-page__image-card {
+  background: #fff;
+  border: 1px solid #e8edf5;
+  padding: 12px;
+  box-shadow: 0 14px 28px rgba(16, 37, 66, 0.05);
+}
+
+.details-page__image-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.details-page__summary {
+  display: grid;
+  gap: 22px;
+}
+
+.details-page__summary-head h1 {
+  margin: 0;
+  color: #12304d;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.details-page__company {
+  margin: 10px 0 0;
+  color: #7a89a0;
+}
+
+.details-page__company span {
+  color: #7f57ff;
+  font-weight: 700;
+}
+
+.details-page__stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.details-page__stats article {
+  padding: 14px 16px;
+  border: 1px solid #e8edf5;
+  background: #fff;
+}
+
+.details-page__stats span {
+  display: block;
+  color: #7c8ba0;
+  font-size: 0.82rem;
+}
+
+.details-page__stats strong {
+  display: block;
+  margin-top: 8px;
+  color: #12304d;
+  font-size: 1.3rem;
+}
+
+.details-page__action-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.details-page__install-button {
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 4px;
+  background: #22d58b;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.details-page__install-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(34, 213, 139, 0.22);
+}
+
+.details-page__install-button:disabled {
+  cursor: not-allowed;
+  background: #b6bfd0;
+  box-shadow: none;
+}
+
+.details-page__action-note {
+  margin: 0;
+  color: #6f8098;
+}
+
+.details-page__chart-panel,
+.details-page__description-panel {
+  padding: 20px 0 6px;
+  border-top: 1px solid #dfe5f0;
+}
+
+.details-page__section-head {
+  margin-bottom: 16px;
+}
+
+.details-page__section-head h2,
+.details-page__section-head p {
+  margin: 0;
+}
+
+.details-page__section-head h2 {
+  color: #12304d;
+  font-size: 1.5rem;
+}
+
+.details-page__section-head p {
+  margin-top: 8px;
+  color: #7c8ba0;
+}
+
+.details-page__chart-shell {
+  background: #fff;
+  border: 1px solid #e8edf5;
+  padding: 18px 12px 12px;
+}
+
+.details-page__description-panel p {
+  margin: 0 0 18px;
+  color: #5a6b82;
+  line-height: 1.85;
+}
+
+.details-page--empty {
+  min-height: 60vh;
+  align-items: center;
+}
+
+.details-empty-card {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 80px 24px;
+  border: 1px solid #e8edf5;
+  background: #fff;
+  text-align: center;
+  box-shadow: 0 16px 32px rgba(16, 37, 66, 0.05);
+}
+
+.details-empty-card h1,
+.details-empty-card p {
+  margin: 0;
+}
+
+.details-empty-card h1 {
+  color: #12304d;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.details-empty-card p {
+  max-width: 56ch;
+  color: #7c8ba0;
+}
+
+@media (max-width: 960px) {
+  .details-page__top,
+  .details-page__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .details-page__top {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .toast {
+    left: 20px;
+    right: 20px;
+    top: 82px;
+  }
+
+  .details-page__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .details-page__chart-shell {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .details-page__action-row {
+    align-items: stretch;
+  }
+}
