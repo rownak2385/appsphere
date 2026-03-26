@@ -8,7 +8,7 @@ AppSphere is a responsive app marketplace web application where users can explor
 
 ## 🌐 Live Link
 
-🔗 https://your-live-link.com
+🔗 https://appsphere-rh.vercel.app/
 
 ---
 
