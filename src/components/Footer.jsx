@@ -20,12 +20,7 @@ function Footer() {
         <div className="site-footer__brand">
           <Link className="brand-mark brand-mark--footer" to="/">
             <img className="brand-mark__image" src={logo} alt="AppSphere logo" />
-            <span className="brand-mark__text">AppSphere</span>
           </Link>
-          <p className="site-footer__copy">
-            Discover focused productivity tools, clean installs, and a curated app
-            experience built for everyday momentum.
-          </p>
         </div>
 
         <div className="site-footer__links">
@@ -60,7 +55,7 @@ function Footer() {
       </div>
 
       <div className="site-footer__bottom">
-        <p>Copyright © 2025 · All right reserved</p>
+        <p>Copyright © 2025 - All right reserved</p>
       </div>
     </footer>
   );
