@@ -66,10 +66,11 @@ function Footer() {
       </div>
 
       <div className="site-footer__bottom">
-        <p>&copy; AppSphere 2026 | All Rights Reserved</p>
+        <p>&copy; 2026 AppSphere, Inc | All Rights Reserved</p>
       </div>
     </footer>
   );
 }
 
 export default Footer;
+

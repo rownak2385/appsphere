@@ -48,7 +48,7 @@ function AppDetailsPage() {
   if (!app) {
     return (
       <section className="details-page details-page--empty">
-        <div className="details-empty-card">
+        <div className="details-empty-card details-empty-card--framed">
           <img src={appErrorImage} alt="App not found" />
           <h1>OPPS!! APP NOT FOUND</h1>
           <p>The App you are requesting is not found on our system. Please try another app.</p>
@@ -115,7 +115,7 @@ function AppDetailsPage() {
             >
               {installed ? "Installed" : `Install Now [${app.size} MB]`}
             </button>
-</div>
+          </div>
         </div>
       </div>
 
@@ -163,4 +163,3 @@ function AppDetailsPage() {
 }
 
 export default AppDetailsPage;
-

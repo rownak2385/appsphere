@@ -19,12 +19,19 @@ function HomePage() {
       <section className="hero-section">
         <div className="hero-section__content">
           <h1>
-            We Build <span>Productive</span> Apps
+            <span className="hero-section__line hero-section__line--dark">We Build</span>
+            <span className="hero-section__line">
+              <span>Productive</span> Apps
+            </span>
           </h1>
           <p className="hero-section__summary">
-            At AppSphere, we craft intuitive apps designed to make everyday life
-            simpler, smarter, and more exciting. Our goal is to turn your ideas into
-            digital experiences that truly make an impact.
+            <span className="hero-section__summary-line">
+              At AppSphere, we craft intuitive apps designed to make everyday life simpler,
+              smarter, and more exciting.
+            </span>
+            <span className="hero-section__summary-line">
+              Our goal is to turn your ideas into digital experiences that truly make an impact.
+            </span>
           </p>
 
           <div className="hero-section__actions">
