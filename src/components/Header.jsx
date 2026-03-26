@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 
 const navItems = [
@@ -11,15 +11,22 @@ function Header() {
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <Link className="brand-mark" to="/">
+        <Link className="brand-mark" to="/" aria-label="AppSphere home">
           <img className="brand-mark__image" src={logo} alt="AppSphere logo" />
         </Link>
 
         <nav className="site-nav" aria-label="Primary navigation">
           {navItems.map((item) => (
-            <Link key={item.to} className="site-nav__link" to={item.to}>
+            <NavLink
+              key={item.to}
+              to={item.to}
+              end={item.to === "/"}
+              className={({ isActive }) =>
+                isActive ? "site-nav__link site-nav__link--active" : "site-nav__link"
+              }
+            >
               {item.label}
-            </Link>
+            </NavLink>
           ))}
         </nav>
 

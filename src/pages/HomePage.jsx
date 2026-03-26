@@ -61,7 +61,7 @@ function HomePage() {
 
         <div className="app-grid">
           {topApps.map((app) => (
-            <AppCard key={app.id} app={app} />
+            <AppCard key={app.id} app={app} clickable />
           ))}
         </div>
 

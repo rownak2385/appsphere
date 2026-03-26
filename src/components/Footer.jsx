@@ -55,10 +55,12 @@ function Footer() {
       </div>
 
       <div className="site-footer__bottom">
-        <p>Copyright © 2025 - All right reserved</p>
+        <p>&copy; AppSphere 2026 | All Rights Reserved</p>
       </div>
     </footer>
   );
 }
 
 export default Footer;
+
+
